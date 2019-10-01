@@ -1,13 +1,15 @@
 package com.projectspring.course.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.validator.constraints.EAN;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name = "tb_user")
 public class User implements Serializable {
 
     @Id
@@ -17,6 +19,9 @@ public class User implements Serializable {
     private String email;
     private String phone;
     private String password;
+
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
 
     public User(){}
 
@@ -46,6 +51,10 @@ public class User implements Serializable {
 
     public String getEmail() {
         return email;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 
     public void setEmail(String email) {

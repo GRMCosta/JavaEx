@@ -1,7 +1,7 @@
 package com.projectspring.course.config;
 
 import com.projectspring.course.entities.User;
-import com.projectspring.course.entities.UserRepository;
+import com.projectspring.course.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;

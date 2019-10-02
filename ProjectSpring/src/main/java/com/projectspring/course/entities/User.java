@@ -1,5 +1,6 @@
 package com.projectspring.course.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.EAN;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class User implements Serializable {
     private String phone;
     private String password;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
 
